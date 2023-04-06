@@ -5,38 +5,74 @@ const markdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [{
     type: 'input',
-    message: 'What is your user name?',
-    name: 'username',
+    message: 'What is the title of the project? ',
+    name: 'title',
   },
   {
-    type: 'password',
-    message: 'What is your password?',
-    name: 'password',
+    type: 'input',
+    message: 'Provide a brief description of your project: ',
+    name: 'description',
   },
   {
-    type: 'password',
-    message: 'Re-enter password to confirm:',
-    name: 'confirm',
-  },];
+    type: 'input',
+    message: 'What are the steps to install your project? ',
+    name: 'installation',
+  },  
+  {
+    type: 'input',
+    message: 'Provide usage instructions for your project: ',
+    name: 'usage',
+  },
+  {
+    type: 'input',
+    message: 'Whom do you want to give credit? ',
+    name: 'credits',
+  },
+  {  
+    type: 'list',
+    message: 'Choose a license for your project:',
+    name: 'license',
+    choices: ['MIT', 'GPLv3', 'Apache', 'Unlicense'],
+  },
+  {
+    type: 'input',
+    message: 'Provide guidelines for contributing to your project: ',
+    name: 'contributing',
+  },
+  {
+    type: 'input',
+    message: 'Provide instructions for running tests for your project: ',
+    name: 'tests',
+  },
+  {
+    type: 'input',
+    message: 'What is your GitHub username? ',
+    name: 'githubUsername',
+  },
+  {
+    type: 'input',
+    message: 'What is your Email address? ',
+    name: 'email',
+  },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, data);
+    fs.writeFile(fileName, data,(err) => {
+        err ? console.error(err) : console.log('Success! Your README.md file has been generated.')
+    });
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
-  .prompt(questions)
-  .then((response) =>
-    response.confirm === response.password
-      ? writeToFile('test.md', markdown(response))
-      : console.log(response)
-  );
+    .prompt(questions)
+    .then((response) => {
+        writeToFile('README.md', markdown(response));
+    });
 }
 
 // Function call to initialize app
 init();
-
 
 
