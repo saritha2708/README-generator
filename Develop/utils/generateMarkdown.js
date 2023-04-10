@@ -1,5 +1,5 @@
 // Function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// If there is no license, returns an empty string
 function renderLicenseBadge(license) {
   switch(license) {
     case 'MIT':
@@ -15,7 +15,7 @@ function renderLicenseBadge(license) {
 }
 
 // Function that returns the license link
-// If there is no license, return an empty string
+// If there is no license, returns an empty string
 function renderLicenseLink(license) {
   switch(license) {
     case 'MIT':
@@ -26,6 +26,16 @@ function renderLicenseLink(license) {
       return 'https://opensource.org/licenses/Apache-2.0';  
     default:
       return '';
+  }
+}
+
+// Function that returns the license section of README
+// If there is no license, returns an empty string
+function renderLicenseSection(license) {
+  if(license === 'MIT' || license === 'GPLv3' || license === 'Apache'){
+    return `This project is licensed under the ${license} license.`
+  } else {
+    return '';
   }
 }
 
@@ -64,7 +74,7 @@ function generateMarkdown(data) {
 
   ## License
 
-  This project is licensed under the ${data.license} license.
+  ${renderLicenseSection(data.license)}
 
   ## Contributing
 
