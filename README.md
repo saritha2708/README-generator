@@ -5,7 +5,8 @@
 
   ## Description
 
-  This application generates a README.md file from the  command-line application. This allows the project creator to devote more time working on the project.
+  This application generates a README.md file from the  command-line application.  
+  [Click here for the walkthrough video](https://drive.google.com/file/d/1L56E6Op6eyvCKIyGB8ry57IP7h0lrysV/view?usp=sharing). 
 
   ## Table of Contents
 
@@ -13,13 +14,11 @@
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
-  * [Contributing](#contributing)
-  * [Tests](#tests)
   * [Questions](#questions)
   
   ## Installation
 
-  Download the code in your local machine and run  `npm install`.
+  Download the code in your local machine and run `npm install` in the terminal. Also make sure node is installed in your machine.
 
   ## Usage
 
